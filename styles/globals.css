@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   NEXTBRIDGE LIMITED — Design System Palette (single source of truth)
+   Change a value here and it cascades to every page via the
+   semantic tokens wired into tailwind.config.ts.
+   ============================================================ */
+:root {
+	/* Surfaces — deep editorial navy/teal-black */
+	--background: #0a1620; /* main site background */
+	--surface: #0e1d28; /* product cards / elevated surfaces */
+	--panel: #0c1a24; /* soft sectioned areas */
+	--footer: #07121a; /* footer background */
+	--deep: #07121a; /* darkest band (hero, full-bleed) */
+	--border: rgba(255, 255, 255, 0.08); /* hairline dividers on dark */
+
+	/* Type */
+	--ink: #f4f7f8; /* high-contrast headings on dark */
+	--ink-soft: #9fb1bd; /* muted body copy on dark */
+
+	/* Brand — luminous cyan accent */
+	--brand: #34d3ce; /* primary action / accent cyan */
+	--brand-dark: #21b5b0; /* hover / pressed */
+	--brand-ink: #07121a; /* dark contrast band */
+	--brand-light: #123038; /* tinted hover/bg on dark */
+
+	--success: #34d399;
+	--danger: #f87171;
+}
+
+@layer base {
+	body {
+		background-color: var(--background);
+		color: var(--ink);
+	}
+
+	.slider-thumb::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: var(--brand);
+		cursor: grab;
+	}
+
+	.slider-thumb::-moz-range-thumb {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: var(--brand);
+		cursor: grab;
+	}
+
+	.slider-thumb:active::-webkit-slider-thumb,
+	.slider-thumb:active::-moz-range-thumb {
+		cursor: grabbing;
+	}
+	.slider-thumb {
+		background-color: var(--brand);
+		width: 20px;
+		height: 20px;
+	}
+
+	.custom-prev-arrow {
+		color: red;
+	}
+}
+
+/* paginationStyles.css */
+
+body {
+	position: relative;
+}
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* margin-top: 20px; */
+}
+
+.pagination li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pagination a,
+.pagination span {
+	font-size: 16px;
+	padding: 6px 12px;
+	text-decoration: none;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 0 3px;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
+}
+
+.pagination a:hover {
+	background-color: var(--brand);
+	color: var(--brand-ink);
+	border-color: var(--brand);
+}
+.pagination .active a {
+	background-color: var(--brand);
+	color: var(--brand-ink);
+	border-color: var(--brand);
+}
+
+.pagination .disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+/*  */
+.custom-radio {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 1px solid var(--brand);
+	border-radius: 50%;
+	margin-right: 8px;
+	transition: all;
+}
+
+.custom-radio:checked {
+	border-color: var(--brand);
+	background-color: var(--brand);
+}
+/* Emailjs form styling */
+/* CSS styles for form elements */
+.form-input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.form-textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+.swiper-pagination-bullet {
+	background-color: var(--brand) !important;
+	color: var(--brand) !important;
+}
+
+/* Change the color of the default arrow */
+.swiper-button-prev,
+.swiper-button-next {
+	color: var(--brand);
+}
+
+@layer utilities {
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	}
+}
